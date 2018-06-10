@@ -91,6 +91,22 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
 
+@app.route('/claim your data', methods=['GET', 'POST'])
+@login_required
+def claim():
+    form = ClaimForm()
+    if form.validate_on_submit():
+        base_date = form.date.data
+        data_type = form.data_type.data
+        if data_type == 'Heart Rate':
+            get_heartrate(base_date)
+        elif data_type == 'Steps':
+            get_steps(base_date)
+        elif data_type == 'Sleep':
+            get_sleep(base_date)
+
+
+
 @app.route('/user/<username>')
 @login_required
 def user(username):

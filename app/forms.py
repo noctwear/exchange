@@ -28,6 +28,11 @@ class RegistrationForm(FlaskForm):
         if user is not None:
             raise ValidationError('Please use a different email address.')
 
+class ClaimForm(FlaskForm):
+	base_date = DateField('Date to get (YYYY-MM-DD', validators=[DataRequired(), Length(min=10, max=10)])
+	data_type = RadioField('Select the data type to claim', choices=['Heart Rate, Steps, Sleep'], validators=[DataRequired()])
+	submit = SubmitField('Claim (pulls data into a new google sheet)')
+
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
