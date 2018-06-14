@@ -3,8 +3,8 @@ from python_fitbit_master import gather_keys_oauth2 as Oauth2
 import pandas as pd
 import datetime
 
-CLIENT_ID = '22CTCF'
-CLIENT_SECRET = 'fc4b857f2a57f05f87c46c41f319e8b4'
+CLIENT_ID = heydontthinkyoucanhackthis
+CLIENT_SECRET = heydontthinkyoucanhackthis
 
 server = Oauth2.OAuth2Server(CLIENT_ID, CLIENT_SECRET)
 server.browser_authorize()
